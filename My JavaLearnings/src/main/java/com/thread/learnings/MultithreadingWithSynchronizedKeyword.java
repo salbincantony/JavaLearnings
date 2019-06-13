@@ -6,7 +6,7 @@ package com.thread.learnings;
  * 
  */
 
-class SynchdCounter {
+class SCounter {
 	int count;
 
 	synchronized void increment() {// method not synchronized
@@ -14,10 +14,10 @@ class SynchdCounter {
 	}
 }
 
-class MySynchedThread extends Thread {
-	SynchdCounter t;
+class MyThreadFirstS extends Thread {
+	SCounter t;
 
-	MySynchedThread(SynchdCounter t) {
+	MyThreadFirstS(SCounter t) {
 		this.t = t;
 	}
 
@@ -31,14 +31,16 @@ class MySynchedThread extends Thread {
 
 public class MultithreadingWithSynchronizedKeyword {
 	public static void main(String args[]) throws Exception {
-		SynchdCounter counter = new SynchdCounter();// only one object
-		MySynchedThread t1 = new MySynchedThread(counter);
-		MySynchedThread t2 = new MySynchedThread(counter);
-		MySynchedThread t3 = new MySynchedThread(counter);
-		MySynchedThread t4 = new MySynchedThread(counter);
-		MySynchedThread t5 = new MySynchedThread(counter);
-		MySynchedThread t6 = new MySynchedThread(counter);
-		MySynchedThread t7 = new MySynchedThread(counter);
+		
+		SCounter counter = new SCounter();// only one object
+		
+		MyThreadFirstS t1 = new MyThreadFirstS(counter);
+		MyThreadFirstS t2 = new MyThreadFirstS(counter);
+		MyThreadFirstS t3 = new MyThreadFirstS(counter);
+		MyThreadFirstS t4 = new MyThreadFirstS(counter);
+		MyThreadFirstS t5 = new MyThreadFirstS(counter);
+		MyThreadFirstS t6 = new MyThreadFirstS(counter);
+		MyThreadFirstS t7 = new MyThreadFirstS(counter);
 		t1.start();
 		t2.start();
 		t3.start();
